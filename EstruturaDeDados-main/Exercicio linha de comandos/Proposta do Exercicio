@@ -1,0 +1,2 @@
+A partir de um arquivo texto que terá uma sequencia de comandos com as funções de inserir, exibir e remover. Fazer um programa para seguir as instruções do arquivo:
+quando estiver a letra 'I' ,na linha do arquivo, inserir em uma pilha o que esta após ela. Quando estiver a letra E exibir a pilha, e quando estiver a letra R remover a linha.
