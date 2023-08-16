@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p id="p1">
+            O Sport Club Internacional é um clube multiesportivo brasileiro com sede na cidade de Porto Alegre, capital do Rio Grande do Sul.
+            Foi fundado em 4 de abril de 1909, pelos irmãos Poppe, com o objetivo de ser uma instituição democrática e sem preconceitos.
+        </p>
+    <button id="bt" type="button" onclick="ocultarText('p1')">Esconder Texto</button>
+    </body>
+
+    <script>
+        function ocultarText(el){
+            var display = document.getElementById(el).style.display;
+            var botao = document.getElementById("bt");
+
+            if(display == "none"){
+                document.getElementById(el).style.display = 'block';
+                botao.innerHTML = "Esconder";
+            }
+            else{
+                document.getElementById(el).style.display = 'none';
+                botao.innerHTML = "Mostrar";
+            }
+        }
+    </script>
+</html>

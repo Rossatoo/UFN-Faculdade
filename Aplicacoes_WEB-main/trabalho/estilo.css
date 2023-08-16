@@ -1,0 +1,57 @@
+body{
+    background-color: rgb(49, 48, 48);
+    background-image: url(relogio.jpg);
+    background-repeat: no-repeat;
+    background-position-x: center;
+
+}
+
+h1{
+    color: khaki;
+    margin-top: 260px;
+    margin-left: 630px;
+
+
+}
+
+p{
+    color:white;
+}
+
+#links{
+    margin-left: 600px;
+
+}
+
+a:link{
+    color: white;
+}
+
+a:visited {
+    color: wheat;
+}
+
+table#precos td {
+    border: 2px solid rgb(100, 87, 62) ;}
+
+table#precos tr.indicadores {
+    background-color: rgb(224, 188, 157);
+}
+
+td{
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+tr {
+    background-color: rgb(151, 140, 125);
+}
+
+#form {
+    
+    background-color: wheat;
+    width: 20%;
+    margin-left: 640px;
+    margin-top: 50px;
+}
+

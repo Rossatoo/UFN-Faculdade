@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        Valor 1:<input type="text" id="v1">
+        Valor 2:<input type="text" id="v2">
+        <button id="bt" onclick="mudarVermelho()" >Mudar Fundo para Vermelho</button>
+        <button id="bt2" onclick="mudarAmarelo()" >Mudar fundo para Amarelo</button>
+        <button id="bt3" onclick="mudarAzul()" >Mudar o fundo para Azul</button>
+        <button id="bt4" onclick="mudarVerde()" >Mudar fundo para Verde</button>
+
+        <script>
+            function mudarVermelho(){
+                document.body.style.background="red";
+            }
+            function mudarAmarelo(){
+                document.body.style.background="yellow";
+            }
+            function mudarAzul(){
+                document.body.style.background="blue";
+            }
+            function mudarVerde(){
+                document.body.style.background="green";
+            }
+        </script>
+    </body>
+</html>

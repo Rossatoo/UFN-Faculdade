@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        Selecione a cor de fundo da pagina: <select onchange="trocaCor(value)">
+            <option value="white">Branco</option>
+            <option value="red">Vermelho</option>
+            <option value="blue">Azul</option>
+            <option value="green">Verde</option>
+        </select>
+
+        <script>
+
+            function trocaCor(cor){
+                document.body.style.background=cor;
+            }
+        </script>
+
+    </body>
+</html>

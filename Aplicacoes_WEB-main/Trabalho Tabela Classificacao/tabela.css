@@ -1,0 +1,38 @@
+body{
+    background-color: lightcyan;
+}
+
+td{
+    text-align: center;
+    font-weight: bold;
+    
+}
+
+h1{
+    text-align: center;
+    font-style: oblique;
+    font-weight: bold;
+}
+table#alter tr.indicadores {
+
+    font-weight: bold;
+    background-color:rgb(243, 218, 79);
+}
+table#alter tr.liberta {
+    background: rgb(105, 218, 105);
+}
+table#alter tr.preliberta {
+    background: rgb(168, 236, 168);
+}
+
+table#alter tr.sulamerica {
+    background: rgb(120, 182, 233);
+}
+
+table#alter td {
+    border: 2px solid rgb(2, 2, 1) ;
+}
+
+table#alter tr.arere {
+    background: rgb(255, 51, 24);
+}

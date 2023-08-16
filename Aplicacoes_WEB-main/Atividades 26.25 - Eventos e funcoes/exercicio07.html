@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        Valor 1:<input type="text" id="v1">
+        Valor 2:<input type="text" id="v2">
+        <button id="bt" onclick="somar()" >Somar!</button>
+        <button id="bt2" onclick="subtrair()" >Subtrair!</button>
+        <button id="bt3" onclick="div()" >Dividir!</button>
+        <button id="bt4" onclick="mult()" >Multiplicar!</button>
+
+        <script>
+            function somar(){
+                var valor1 = parseInt(document.getElementById("v1").value);
+                var valor2 = parseInt(document.getElementById("v2").value);
+                var result = valor1 + valor2;
+                alert(result);
+            
+            }
+            function subtrair(){
+                var valor1 = parseInt(document.getElementById("v1").value);
+                var valor2 = parseInt(document.getElementById("v2").value);
+                var result = valor1 - valor2;
+                alert(result);
+            
+            }
+            function div(){
+                var valor1 = parseInt(document.getElementById("v1").value);
+                var valor2 = parseInt(document.getElementById("v2").value);
+                var result = valor1 / valor2;
+                alert(result);
+            
+            }
+            function mult(){
+                var valor1 = parseInt(document.getElementById("v1").value);
+                var valor2 = parseInt(document.getElementById("v2").value);
+                var result = valor1 * valor2;
+                alert(result);
+            
+            }
+        </script>
+    </body>
+</html>

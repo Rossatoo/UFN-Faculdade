@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p><b> Selecione seus complementos: </b></p>
+        Batata Frita <input type="checkbox" name="complementos" onclick="checar()">
+        Refrigerante <input type="checkbox" name="complementos" onclick="checar()">
+        Molho Barbecue <input type="checkbox" name="complementos" onclick="checar()"><br><br>
+
+        <button type="button" id="aplica" onclick="checar()" disabled> Aplicar</button> 
+        
+        <script>
+            function checar(){
+            var box = document.getElementsByName("complementos");
+            var bt = document.getElementById("aplica");
+            
+            var cont = 0;
+
+            for(i=0; i< box.length; i++){
+                if(box[i].checked == true){
+                    cont++;
+                }     
+                   }
+            if(cont >= 2){
+                document.getElementById("aplica").removeAttribute("disabled");
+            }
+            else {
+                document.getElementById("aplica").setAttribute("disabled", "disabled");
+            }
+        }
+        </script>
+    </body>
+</html>

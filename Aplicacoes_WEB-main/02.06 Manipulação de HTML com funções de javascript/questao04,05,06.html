@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p id="p1">
+            O Sport Club Internacional é um clube multiesportivo brasileiro com sede na cidade de Porto Alegre, capital do Rio Grande do Sul.
+            Foi fundado em 4 de abril de 1909, pelos irmãos Poppe, com o objetivo de ser uma instituição democrática e sem preconceitos.
+        </p>
+
+        <button type="button" onclick="letraBranca()">Letra Branca</button>
+        <button type="button" onclick="letraPreta()">Letra Preta</button>
+        <button type="button" onclick="fundoPreto()">Fundo Preto</button>
+        <button type="button" onclick="fundoBranco()">Fundo Branco</button>
+        <button type="button" onclick="fonteMaior()">+</button>
+        <button type="button" onclick="fonteMenor()">-</button>
+        <button type="button" onclick="fonteMaiuscula()">Fonte Maiuscula</button>
+        <button type="button" onclick="fonteMinuscula()">Fonte Minuscula</button>
+    
+    
+    </body>
+
+    <script>
+        function letraBranca(){
+            var paragrafo = document.getElementById("p1");
+            paragrafo.style.color = "white";
+        }
+
+        function letraPreta(){
+            var paragrafo = document.getElementById("p1");
+            paragrafo.style.color = "black";
+        }
+        function fundoPreto(){
+            var paragrafo = document.getElementById("p1");
+            paragrafo.style.backgroundColor = "black";
+        }
+        function fundoBranco(){
+            var paragrafo = document.getElementById("p1");
+            paragrafo.style.backgroundColor = "white";
+        }
+        function fonteMaior(){
+            var paragrafo = document.getElementById("p1");
+            paragrafo.style.fontSize = "20px";
+        }
+
+        function fonteMenor(){
+            var paragrafo = document.getElementById("p1");
+            paragrafo.style.fontSize = "15px";
+        }
+
+        function fonteMaiuscula(){
+            var paragrafo = document.getElementById("p1");
+            paragrafo.style.textTransform = "uppercase";
+        }
+
+        function fonteMinuscula(){
+            var paragrafo = document.getElementById("p1");
+            paragrafo.style.textTransform = "lowercase";
+        }
+    </script>
+</html>

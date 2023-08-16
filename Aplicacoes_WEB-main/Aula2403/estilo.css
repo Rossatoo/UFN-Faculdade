@@ -1,0 +1,38 @@
+body {
+
+    background-color: aqua;
+    background-image: url("download.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+h1 {
+    font-size: 60px;
+    color: blue;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-decoration: underline;
+    text-decoration-color: brown;
+}
+p{
+color: darkgoldenrod;
+font-weight: bold;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+font-style: italic;
+font-size: 20pt;
+letter-spacing: 3px;
+}
+
+a{
+    color: darkgreen;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: italic;
+}
+a:link{
+    color: deeppink;
+}
+a.diversao{
+    color: rgb(15, 39, 1);
+}
+a.estudo{
+    color: rgb(207, 21, 21);
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <!-- Criando os campos do formulario atribuindo id e funções-->
+        Nome: <input type="text" id="nome"><br><br>
+        Pessoa Fisica <input type="checkbox" id="fisica" name="tipo_fisica" onchange="check()">
+        pessoa Juridica <input type="checkbox" id="juridica" name="tipo_juridica" onchange="check()"><br><br>
+        CPF: <input type="text" id="cpf" onchange= "check()" disabled ><br><br>
+        CNPJ: <input type="text" id="cnpj" onchange= "check()" disabled><br><br>
+        Data de Nascimento: <input type="number" id="nasc" onclick= "check()" disabled><br><br>
+        Endereço: <input type="text" id="endereco"><br><br>
+        Cep: <input type="number" id="cep"><br><br>
+        Telefone: <input type="text" id="telefone"><br><br>
+        Email: <input type="email" id="email"><br><br>
+        <button id="bt" onclick="submit()">Confirmar</button>
+
+        <script>
+            // Função para habilitar campos dependendo da checkbox selecionada
+            function check(){
+
+                //habilitando os campos "cpf" e "data de nascimento caso o checkbox "pessoa fisica" for selecionado
+                if(document.getElementById("fisica").checked){
+                    document.getElementById("cpf").removeAttribute("disabled");
+                    document.getElementById("nasc").removeAttribute("disabled");
+                }
+
+                //desabilitando os campos "cpf" e "data de nascimento" caso o checkbox "pessoa fisica" nao for selecionado
+                else {
+                    document.getElementById("cpf").setAttribute("disabled", "disabled");
+                    document.getElementById("nasc").setAttribute("disabled", "disabled");
+                }
+
+
+                //habilitando o campo "cnpj" caso o checkbox "pessoa juridica" for selecionado
+                if(document.getElementById("juridica").checked){
+                    document.getElementById("cnpj").removeAttribute("disabled");
+                }
+                //desabilitando o campo "cnpj" caso o checkbox "pessoa juridica" nao for selecionado
+                else {
+                    document.getElementById("cnpj").setAttribute("disabled", "disabled");
+                }
+            }
+                //função para mostrar a mensagem "cadastro concluido" ao apertar o botao
+            function submit(){
+                alert("cadastro Concluido!!");
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+body{
+    background-color: lightblue;
+}
+
+#c1{
+    color: rgb(21, 57, 126);
+}
+
+#c1-1{
+    color: rgb(13, 86, 182);
+}
+#c1-2{
+    color: rgb(13, 86, 182);
+
+}
+#c2{
+    color: rgb(21, 57, 126);
+
+}
+
+#c2-1{
+    color: rgb(13, 86, 182);
+
+}
+
+#c2-1-1{
+    color: rgb(6, 88, 99);
+
+}
+span{
+    background-color: silver;
+}
+span.beneficio{
+    color: mediumblue;
+}
+span.prazeres{
+    color: navy;
+}
