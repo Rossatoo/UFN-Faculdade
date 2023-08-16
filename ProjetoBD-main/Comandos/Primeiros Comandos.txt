@@ -1,0 +1,35 @@
+#Cria uma nova base de dados
+create database aula8;
+
+#Mostra os banco
+show databases;
+
+#Colocando o banco em uso
+use aula8;
+
+#Exibe as tabela
+show tables;
+
+create table Pessoa(
+ID int auto_increment primary key, #auto_increment(Numera automaticamente) - primary key(deixa como identificador)
+Nome varchar(40), 
+Email varchar(45),
+DataNascimento date,
+Matricula char(9) unique); #unique(nao deixa ter dado repetido)
+
+#Exibindo as informações da tabela
+desc Pessoa;
+
+#Eliminar um campo da tabela
+alter table Pessoa drop Matricula;
+
+#inserir dados na tabela
+insert into Pessoa values (null, 'Herysson', 'herysson.figueiredo@ufn.edu.br', '1988-7-6'); 
+insert into Pessoa values (null, 'Matheus', 'rossato.matheus@ufn.edu.br', '2002-12-9');
+desc Pessoa;
+
+#Consulta personalizada
+select Nome, Email from Pessoa;
+
+#Consulta Geral
+select * from Pessoa;

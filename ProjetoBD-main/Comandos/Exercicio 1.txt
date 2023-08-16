@@ -1,0 +1,23 @@
+create database aula01;
+use aula01;
+
+ create table Veiculo(
+ Codigo int primary key,
+ marca varchar(40),
+ modelo varchar(40),
+ cor varchar(40),
+ anoFabricacao int,
+ valor float);
+ 
+ insert into Veiculo values (200, 'chevrolet', 's10', 'preto', 2018, 290.00);
+ insert into Veiculo values (201, 'chevrolet', 'onix', 'vermelho', 2019, 80.50);
+ insert into Veiculo values (202, 'toyota', 'hilux', 'bordo', 2022, 350.60);
+ insert into Veiculo values (203, 'toyota', 'corolla', 'prata', 2023, 150.00);
+ insert into Veiculo values (204, 'fiat', 'toro', 'azul', 2021, 90.00);
+ 
+ select * from Veiculo where Codigo > 3;
+ 
+select marca from Veiculo;
+select valor from Veiculo;
+select * from Veiculo where marca = 'chevrolet';
+ 

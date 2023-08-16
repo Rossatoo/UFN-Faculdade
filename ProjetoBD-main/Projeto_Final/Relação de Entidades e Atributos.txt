@@ -1,0 +1,132 @@
+								DATABASE "PALEONTOLOGIA"
+
+	DINOSSAURO 					ERA DE EXISTENCIA		GRUPO	
+	- ID SERIAL					- ID SERIAL			- ID SERIAL
+	- Nome TEXT					- Nome TEXT			- Nome TEXT
+	- Grupo (FK) TEXT 				- anoInicio INT
+	- Toneladas INT					- anoFim INT
+	- anoDescoberta INT
+	- Descobridor TEXT
+	- eraExistencia (FK) TEXT
+	- Pais TEXT
+
+
+								RELAÇÕES DAS TABELAS
+				
+							      DINOSSAURO <pertence> GRUPO
+								      (1,N)	 (1,1)
+
+							      DINOSSAURO <viveu> ERA
+						                      (1,N)    (1,1)
+
+
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		
+								--LINHAS DE COMANDO PARA CRIAÇÃO DO BANCO DE DADOS	
+
+	CREATE TABLE GRUPO(
+		ID SERIAL PRIMARY KEY,	
+		Nome TEXT);
+
+	
+	CREATE TABLE ERA_EXISTENCIA(
+		ID SERIAL PRIMARY KEY,
+		Nome TEXT,
+		anoInicio INT,
+		anoFim INT);
+
+	CREATE TABLE DINOSSAURO(
+		ID SERIAL PRIMARY KEY,
+		Nome TEXT,
+		Toneladas INT,
+		anoDescoberta INT,
+		Descobridor TEXT,
+		Pais TEXT,
+		Grupo INT,
+		Era INT,
+		FOREIGN KEY(Grupo) REFERENCES GRUPO(ID),
+		FOREIGN KEY(Era) REFERENCES ERA_EXISTENCIA(ID));
+
+	
+	--LINHAS DE COMANDO PARA INSERÇÃO DE VALORES NAS  TABELAS
+	--INSERINDO OS NOMES DOS GRUPOS NA TABELA "GRUPO"
+	INSERT INTO GRUPO (Nome) VALUES('Anquilossauros');
+	INSERT INTO GRUPO (Nome) VALUES('Ceratopsideos');
+	INSERT INTO GRUPO (Nome) VALUES('Estegossauros');
+	INSERT INTO GRUPO (Nome) VALUES('Terápodes');
+
+	--INSERINDO OS NOMES, ANO DE INICIO E ANO DE FIM NA TABELA "ERA_EXISTENCIA"
+	INSERT INTO ERA_EXISTENCIA (Nome, anoInicio, anoFim) VALUES('Cretáceo', 145, 66);	
+	INSERT INTO ERA_EXISTENCIA (Nome, anoInicio, anoFim) VALUES('Jurássico', 201, 145);
+
+	--INSERINDO OS NOMES, TONELADAS, ANO DE DESCOBERTAS, DESCOBRIDOR, PAIS, GRUPO E ERA NA TABELA "DINOSSAURO"
+	INSERT INTO dinossauro(
+	nome, toneladas, anodescoberta, descobridor, pais, grupo, era)
+	VALUES ('Saichania', 4, 1977, 'Maryanska', 'Mongólia', 1, 1);
+	
+	INSERT INTO dinossauro(
+	nome, toneladas, anodescoberta, descobridor, pais, grupo, era)
+	VALUES ('Tricerátops', 6, 1887, 'John Bell Hacher', 'Canadá', 2, 1);
+	
+	INSERT INTO dinossauro(
+	nome, toneladas, anodescoberta, descobridor, pais, grupo, era)
+	VALUES ('Kentrossauro', 2, 1909, 'Cientistas Alemães', 'Tanzânia', 3, 2);
+
+	INSERT INTO dinossauro(
+	nome, toneladas, anodescoberta, descobridor, pais, grupo, era)
+	VALUES ('Pinacossauro', 6, 1999, 'Museu Americano de História Natural', 'China', 1, 1);
+
+	INSERT INTO dinossauro(
+	nome, toneladas, anodescoberta, descobridor, pais, grupo, era)
+	VALUES ('Alossauro', 3, 1877, 'Othniel Charles Marsh', 'América do Norte', 4, 2);
+	
+	INSERT INTO dinossauro(
+	nome, toneladas, anodescoberta, descobridor, pais, grupo, era)
+	VALUES ('Torossauro', 8, 1891, 'John Bell Hatcher', 'USA', 2, 1);
+
+	INSERT INTO dinossauro(
+	nome, toneladas, anodescoberta, descobridor, pais, grupo, era)
+	VALUES ('Anquilossauro', 8, 1906, 'Barnum Brown', 'América do Norte', 1, 1);
+	
+
+	--LINHAS DE COMANDO PARA CONSULTAS 
+	--QUESTAO 7: CRIE UMA CONSULTA PARA PARA RELACIONAR TODOS OS DADOS OS DADOS DISPONIVEIS DE TODOS OS DINOSSAUROS EXISTENTES NO CATALOGO EM ORDEM ALFABETICA DE NOME
+	SELECT DINOSSAURO.Nome, GRUPO.Nome, DINOSSAURO.Toneladas, DINOSSAURO.anoDescoberta, DINOSSAURO.Descobridor, ERA_EXISTENCIA.Nome, ERA_EXISTENCIA.anoInicio, ERA_EXISTENCIA.anoFim, DINOSSAURO.Pais 
+	FROM DINOSSAURO
+	JOIN GRUPO 
+	ON DINOSSAURO.Grupo = GRUPO.ID
+	JOIN ERA_EXISTENCIA
+	ON DINOSSAURO.Era = ERA_EXISTENCIA.ID
+	ORDER BY DINOSSAURO.Nome;
+
+	--QUESTAO 8: CRIE UMA CONSULTA PARA RELACIONAR TODOS OS DADOS DISPONIVEIS DE TODOS OS DINOSSAUROS EXISTENTES EN ORDEM ALFABETICA DE DESCOBRIDOR
+	SELECT DINOSSAURO.Nome, GRUPO.Nome, DINOSSAURO.Toneladas, DINOSSAURO.anoDescoberta, DINOSSAURO.Descobridor, ERA_EXISTENCIA.Nome, ERA_EXISTENCIA.anoInicio, ERA_EXISTENCIA.anoFim, DINOSSAURO.Pais 
+	FROM DINOSSAURO
+	JOIN GRUPO 
+	ON DINOSSAURO.Grupo = GRUPO.ID
+	JOIN ERA_EXISTENCIA
+	ON DINOSSAURO.Era = ERA_EXISTENCIA.ID
+	ORDER BY DINOSSAURO.Descobridor;
+
+	--QUESTAO 9: CRIE UMA CONSULTA PARA RELACIONAR TODOS OS DADOS DISPONIVEIS DOS DINOSSAUROS DO GRUPO ANQUILOSSAUROS EM ORDEM DE ANO DE DESCOBERTA
+	SELECT DINOSSAURO.Nome, GRUPO.Nome, DINOSSAURO.Toneladas, DINOSSAURO.anoDescoberta, DINOSSAURO.Descobridor, ERA_EXISTENCIA.Nome, ERA_EXISTENCIA.anoInicio, ERA_EXISTENCIA.anoFim, DINOSSAURO.Pais 
+	FROM DINOSSAURO
+	JOIN GRUPO 
+	ON DINOSSAURO.Grupo = GRUPO.ID
+	JOIN ERA_EXISTENCIA
+	ON DINOSSAURO.Era = ERA_EXISTENCIA.ID
+	WHERE GRUPO.Nome = 'Anquilossauros'
+	ORDER BY DINOSSAURO.anoDescoberta;
+
+	--QUESTAO 10: CRIE UMA CONSULTA PARA RELACIONAR TODOS OS DADOS DISPONIVEIS DOS DINOSSAUROS CERATOPSIDEOS OU ANQUILOSSAUROS COM ANO DE DESCOBERTA ENTRE 1900 E 1999
+	SELECT DINOSSAURO.Nome, GRUPO.Nome, DINOSSAURO.Toneladas, DINOSSAURO.anoDescoberta, DINOSSAURO.Descobridor, ERA_EXISTENCIA.Nome, 		ERA_EXISTENCIA.anoInicio, ERA_EXISTENCIA.anoFim, DINOSSAURO.Pais 
+	FROM DINOSSAURO
+	JOIN GRUPO 
+	ON DINOSSAURO.Grupo = GRUPO.ID
+	JOIN ERA_EXISTENCIA
+	ON DINOSSAURO.Era = ERA_EXISTENCIA.ID
+	WHERE GRUPO.Nome IN ('Ceratopsideos', 'Anquilossauros') AND DINOSSAURO.anoDescoberta BETWEEN 1900 AND 1999;
+
+ 
+	
+	
