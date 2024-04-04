@@ -33,7 +33,7 @@ public class Funcionario {
     @JoinColumn(name = "Cpf_Supervisor")
     private Funcionario supervisor;
 
-    @OneToMany(mappedBy = "funcionario", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "funcionario", cascade = CascadeType.ALL)
     private List<Dependente> dependentes;
 
     @OneToMany(mappedBy = "supervisor", cascade = CascadeType.ALL, orphanRemoval = true)

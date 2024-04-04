@@ -1,12 +1,14 @@
 package com.atividade1.Model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
+import lombok.*;
+
 
 import java.io.Serializable;
 
 @Embeddable
+@Setter
+@Getter
 public class Nome implements Serializable {
 
     @Column(name = "Pnome")
