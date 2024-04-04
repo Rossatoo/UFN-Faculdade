@@ -25,12 +25,13 @@ public class Departamento {
     @ElementCollection
     private List<String> localizacoes;
 
-    @OneToMany(mappedBy = "departamento")
-    private List<Funcionario> funcionario;
+    @OneToMany(mappedBy = "departamento", cascade = CascadeType.ALL)
+    private List<Funcionario> listaFuncionarios;
 
-    @OneToOne(mappedBy = "numDepartamento")
+    @OneToOne
+    @JoinColumn(name = "idGerente")
     private Funcionario gerente;
 
-    @OneToMany(mappedBy = "departamento")
+    @OneToMany(mappedBy = "departamento", cascade = CascadeType.ALL)
     private List<Projeto> projetos;
 }

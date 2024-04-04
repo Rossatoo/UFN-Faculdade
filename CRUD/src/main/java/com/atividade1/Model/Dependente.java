@@ -11,7 +11,7 @@ import java.util.Date;
 public class Dependente {
 
     @EmbeddedId
-    private DependenteKey Id;
+    private DependenteKey dependenteId;
     private String sexo;
 
     private Date dataNasc;
@@ -19,7 +19,7 @@ public class Dependente {
     private String Parentesco;
 
     @ManyToOne
-    @MapsId("funcionarioParente")
+    @MapsId("funcionarioId")
     @JoinColumn(name = "Fcpf")
-    private Funcionario funcionarioParente;
+    private Funcionario funcionario;
 }

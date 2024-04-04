@@ -22,8 +22,9 @@ public class Projeto {
     private String projetoLocal;
 
     @ManyToOne
+    @JoinColumn(name = "Dnum")
     private Departamento departamento;
 
     @OneToMany(mappedBy = "numeroProjeto")
-    private List<Trabalha_em> trabalhaEm;
+    private List<TrabalhaEm> trabalhaEm;
 }

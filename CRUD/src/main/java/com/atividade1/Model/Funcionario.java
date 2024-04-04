@@ -12,35 +12,40 @@ import java.util.List;
 @Entity
 public class Funcionario {
 
+
     @Id
-    private Integer Cpf;
+    @Column(length = 11)
+    private String cpf;
     @Embedded
     private Nome nome;
 
     private Date dataNasc;
 
-    private Float Salario;
+    private Float salario;
 
-    private String Sexo;
+    private String sexo;
 
-    private  String Endereco;
+    private  String endereco;
 
     @ManyToOne
-    @JoinColumn(name = "Cpf_supervisor")
+    @JoinColumn(name = "Cpf_Supervisor")
     private Funcionario supervisor;
+
+    @OneToMany(mappedBy = "funcionario", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Dependente> dependentes;
 
     @OneToMany(mappedBy = "supervisor", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Funcionario> supervisionados;
 
-    @OneToMany(mappedBy = "funcionarioParente", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Dependente> dependente;
+    @OneToMany(mappedBy = "funcionario")
+    private List<TrabalhaEm> trabalhaEM;
 
     @ManyToOne
+    @JoinColumn(name = "Dnr")
     private Departamento departamento;
 
-    @OneToOne
-    private Departamento numDepartamento;
+    @OneToOne(mappedBy = "gerente")
+    private Departamento departamentoGerente;
 
-    @OneToMany(mappedBy = "funcionarioCPF")
-    private List<Trabalha_em> trabalhaEM;
+
 }
