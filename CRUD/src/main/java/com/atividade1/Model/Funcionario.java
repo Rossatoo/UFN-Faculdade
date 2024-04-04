@@ -12,8 +12,10 @@ import java.util.List;
 @Entity
 public class Funcionario {
 
-
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
     @Column(length = 11)
     private String cpf;
     @Embedded
