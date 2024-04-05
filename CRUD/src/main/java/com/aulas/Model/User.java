@@ -17,7 +17,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id;
-    private String name;
+    private String nome;
     private String email;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonManagedReference
@@ -26,17 +26,17 @@ public class User {
     @Builder
 
     public User(String nome, String email, List<Phone> phones) {
-        this.name = nome;
+        this.nome = nome;
         this.email = email;
         this.phones = phones;
     }
 
     public String getNome() {
-        return name;
+        return nome;
     }
 
     public void setNome(String nome) {
-        this.name = nome;
+        this.nome = nome;
     }
 
     public String getEmail() {
