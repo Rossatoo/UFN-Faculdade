@@ -15,7 +15,8 @@ public class TrabalhaEm {
     private float horas;
 
     @ManyToOne
-    private Funcionario funcionarioCPF;
+    @MapsId("funcionarioId")
+    private Funcionario funcionario;
 
 
     @ManyToOne

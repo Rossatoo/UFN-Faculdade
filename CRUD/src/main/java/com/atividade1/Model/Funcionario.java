@@ -10,6 +10,7 @@ import java.util.List;
 @Setter
 @Getter
 @Entity
+@RequiredArgsConstructor
 public class Funcionario {
 
 
@@ -45,7 +46,7 @@ public class Funcionario {
     private Departamento dptGerenciado;
 
 
-    @OneToMany(mappedBy = "funcionarioCPF", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "funcionario", cascade = CascadeType.ALL)
     private List<TrabalhaEm> trabalhaEm;
 
 
