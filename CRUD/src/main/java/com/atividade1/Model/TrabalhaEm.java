@@ -15,9 +15,7 @@ public class TrabalhaEm {
     private float horas;
 
     @ManyToOne
-    @MapsId("funcionarioId")
-    @JoinColumn(name = "Fcpf")
-    private Funcionario funcionario;
+    private Funcionario funcionarioCPF;
 
 
     @ManyToOne

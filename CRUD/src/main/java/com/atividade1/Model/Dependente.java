@@ -19,7 +19,7 @@ public class Dependente {
     private String Parentesco;
 
     @ManyToOne
-    @MapsId("funcionarioId")
+    @MapsId("funcionarioParente")
     @JoinColumn(name = "Fcpf")
-    private Funcionario funcionario;
+    private Funcionario funcionarioParente;
 }

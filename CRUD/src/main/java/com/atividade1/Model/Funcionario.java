@@ -12,10 +12,8 @@ import java.util.List;
 @Entity
 public class Funcionario {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
 
+    @Id
     @Column(length = 11)
     private String cpf;
     @Embedded
@@ -33,21 +31,25 @@ public class Funcionario {
     @JoinColumn(name = "Cpf_Supervisor")
     private Funcionario supervisor;
 
-    @OneToMany(mappedBy = "funcionario", cascade = CascadeType.ALL)
-    private List<Dependente> dependentes;
-
     @OneToMany(mappedBy = "supervisor", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Funcionario> supervisionados;
 
-    @OneToMany(mappedBy = "funcionario")
-    private List<TrabalhaEm> trabalhaEM;
+    @OneToMany(mappedBy = "funcionarioParente", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Dependente> dependente;
 
     @ManyToOne
     @JoinColumn(name = "Dnr")
     private Departamento departamento;
 
     @OneToOne(mappedBy = "gerente")
-    private Departamento departamentoGerente;
+    private Departamento dptGerenciado;
+
+
+    @OneToMany(mappedBy = "funcionarioCPF", cascade = CascadeType.ALL)
+    private List<TrabalhaEm> trabalhaEm;
+
+
+
 
 
 }
