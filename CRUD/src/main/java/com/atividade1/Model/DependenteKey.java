@@ -12,5 +12,5 @@ public class DependenteKey implements Serializable {
     @Column(name = "Nome_dependente")
     private String nome;
     @Column (name = "Fcpf")
-    private String funcionarioParente;
+    private String funcionarioCPF;
 }

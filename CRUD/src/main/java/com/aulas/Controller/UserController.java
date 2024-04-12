@@ -3,11 +3,11 @@ package com.aulas.Controller;
 import com.aulas.Exception.ResourceNotFoundException;
 import com.aulas.Model.User;
 import com.aulas.Services.UserService;
-import com.aulas.repository.UserRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/users")
@@ -37,6 +37,17 @@ public class UserController {
         User user = userService.findUserById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + id));
         return ResponseEntity.ok(user);
+    }
+
+    @GetMapping("/email/{email}")
+    public Optional<User> findByEmail(@PathVariable String email){
+        return userService.findByEmail(email);
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<User>> findUsersByName(@RequestParam String name){
+        List<User> users = userService.findUsersByName(name);
+        return ResponseEntity.ok(users);
     }
 
     @PutMapping("/{id}")

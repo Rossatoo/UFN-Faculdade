@@ -3,11 +3,13 @@ package com.atividade1.Model;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Setter
 @Getter
 @Entity
+@RequiredArgsConstructor
 public class TrabalhaEm {
 
     @EmbeddedId

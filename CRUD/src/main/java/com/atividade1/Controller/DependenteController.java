@@ -1,11 +1,13 @@
 package com.atividade1.Controller;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import com.atividade1.Model.Dependente;
 import com.atividade1.Repository.DependenteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLOutput;
 import java.util.List;
 
 @Controller
@@ -25,7 +27,8 @@ public class DependenteController {
     @PostMapping("/inserir")
     public @ResponseBody String salvarDependente(@RequestBody Dependente dependente){
         //INSERT no banco de dados
-
+        //System.out.println(dependente.g;
+        //System.out.println(dependente.toString());
         repository.save(dependente);
         return "saved";
     }

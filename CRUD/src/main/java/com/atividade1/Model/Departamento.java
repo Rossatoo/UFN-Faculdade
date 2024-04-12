@@ -24,6 +24,11 @@ public class Departamento {
     protected Date dataInicioGerente;
 
     @ElementCollection
+    @CollectionTable(
+            name = "LOCALIZACAO_DEP",
+            joinColumns = @JoinColumn(name = "Dnumero")
+    )
+    @Column(name = "Dlocal")
     private List<String> localizacoes;
 
     @OneToMany(mappedBy = "departamento", cascade = CascadeType.ALL)

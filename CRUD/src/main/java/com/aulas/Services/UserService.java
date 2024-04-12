@@ -28,12 +28,21 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    public Optional<User> findByEmail(String email) {
+        return Optional.ofNullable(userRepository.findByEmail(email));
+    }
+
+    public List<User> findUsersByName(String name){
+        return userRepository.findByNameContainingIgnoreCase(name);
+    }
+
+
     public Optional<User> findUserById(Long id){
         return userRepository.findById(id);
     }
     public User updateUser(Long id, User userDetails){
         User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + id));
-        user.setNome(userDetails.getNome());
+        user.setName(userDetails.getName());
         user.setEmail(userDetails.getEmail());
         user.setPhones(userDetails.getPhones());
         return userRepository.save(user);
