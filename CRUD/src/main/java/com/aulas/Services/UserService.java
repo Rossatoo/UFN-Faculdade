@@ -6,6 +6,7 @@ import com.aulas.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,6 +37,10 @@ public class UserService {
         return userRepository.findByNameContainingIgnoreCase(name);
     }
 
+
+    //MEXENDO AQUI AGORA
+    public Optional<User> findByAlgumaCoisaName(String name){return Optional.ofNullable(userRepository.findByAlgumaCoisaName(name));
+    }
 
     public Optional<User> findUserById(Long id){
         return userRepository.findById(id);

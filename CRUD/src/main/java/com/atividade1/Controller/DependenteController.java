@@ -27,7 +27,7 @@ public class DependenteController {
     @PostMapping("/inserir")
     public @ResponseBody String salvarDependente(@RequestBody Dependente dependente){
         //INSERT no banco de dados
-        //System.out.println(dependente.g;
+
         //System.out.println(dependente.toString());
         repository.save(dependente);
         return "saved";

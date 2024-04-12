@@ -44,6 +44,9 @@ public class UserController {
         return userService.findByEmail(email);
     }
 
+    @GetMapping("/name/{name}")
+    public Optional<User> findByAlgumaCoisaName(@PathVariable String name) { return userService.findByAlgumaCoisaName(name);}
+
     @GetMapping("/search")
     public ResponseEntity<List<User>> findUsersByName(@RequestParam String name){
         List<User> users = userService.findUsersByName(name);
