@@ -36,6 +36,8 @@ public class Pedido {
 
     private LocalDateTime dataEntrega;
 
+    private int quantidade;
+
     private double valorTotal;
 
     private String instrucaoEntrega;

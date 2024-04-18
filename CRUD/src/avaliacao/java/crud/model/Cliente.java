@@ -29,7 +29,6 @@ public class Cliente {
 
     private String formaPagamento;
 
-    private String historicoPedido; //talvez fazer uma entidade separado para o historico de pedidos
 
     @OneToMany(mappedBy = "cliente")    //Um cliente pode ter varios pedidos
     private List<Pedido> pedidos;
