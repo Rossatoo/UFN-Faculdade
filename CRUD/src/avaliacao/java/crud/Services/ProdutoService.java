@@ -20,7 +20,7 @@ public class ProdutoService {
 
     public Produto createProduto(Produto produto) { return produtoRepository.save(produto);}
 
-    public List<Produto> findAllUsers() { return produtoRepository.findAll();}
+    public List<Produto> findAllProdutos() { return produtoRepository.findAll();}
 
     public Optional<Produto> findProdutoById(int id){
         return produtoRepository.findById(id);
@@ -42,10 +42,3 @@ public class ProdutoService {
     }
 
 }
-//*private String descricao;
-//
-//    private double preco;
-//
-//    private String categoria;
-//
-//    private boolean disponivel;
