@@ -27,7 +27,6 @@ public class ClienteService {
     public Cliente updateCliente(int id, Cliente clienteDetails){
         Cliente cliente = clienteRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Cliente nao encontrado com o id: " + id));
         cliente.setNome(clienteDetails.getNome());
-        cliente.setNome(clienteDetails.getNome());
         cliente.setEmail(clienteDetails.getEmail());
         cliente.setTelefone(clienteDetails.getTelefone());
         cliente.setEndereco(clienteDetails.getEndereco());

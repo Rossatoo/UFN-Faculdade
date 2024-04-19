@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -21,10 +22,11 @@ public class Pedido {
     private int id;
 
     @ManyToOne      //Um pedido pertence a um unico cliente
-    @JoinColumn(name = "cliente_id", nullable = false)
+    @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
     @ManyToMany     // Um pedido pode conter muitos produtos
+    //@JsonManagedReference
     @JoinTable(                                                     //usado para especificar a tabela intermediaria ( * - * )
             name = "pedido_produto",                                //nome da tabela intermediaria
             joinColumns = @JoinColumn(name = "pedido_id"),          //coluna da tabela que ira mapear para a tabela Pedido
@@ -32,11 +34,12 @@ public class Pedido {
     private List<Produto> produtos;
 
     @OneToMany(mappedBy = "pedido")
+    @JsonManagedReference
     private List<Pagamento> pagamentos;
 
-    private LocalDateTime dataPedido;
+    private String dataPedido;
 
-    private LocalDateTime dataEntrega;
+    private String dataEntrega;
 
     private int quantidade;
 
