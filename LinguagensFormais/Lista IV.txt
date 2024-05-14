@@ -1,0 +1,40 @@
+ 
+LISTA IV
+
+Gramaticas Regulares G = (V, T, P, S) -  (Conjunto de Variaveis, alfabeto, P, variavel inicial)
+
+i. (b + ab)*
+
+P = {X -> bX | abX |  ε}
+G = {{X}, {a,b}, P, X}
+X => abX => ababX => ababbX => &
+
+ii. (a+  ε)(b+ba) 
+
+P = 	{X -> aY |  εY
+	 Y -> b | ba}
+
+
+iii. (ab+ba)*(aa+bb)
+
+P =	{X -> abX | baX | εX | εY,
+	 Y -> aa  | bb		}
+	
+
+
+iv. ab(abb*+baa*)*ba
+
+P =	{X -> abA,
+	 Y -> bY | εA,
+	 Z -> aZ | εA,
+	 A -> abY | baZ | εA | εB,
+	 B -> ba 		  }  
+
+
+v. (aa+b)*(a+bb)
+
+P =	{X -> aaX | bX | εX | εY,
+	 Y -> a  | bb	      }
+
+
+
