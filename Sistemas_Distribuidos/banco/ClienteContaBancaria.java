@@ -1,6 +1,5 @@
 package banco;
 
-//ClienteContaBancaria.java
 
 import java.io.*;
 import java.net.*;
@@ -9,7 +8,7 @@ import java.util.Scanner;
 public class ClienteContaBancaria {
  public static void main(String[] args) {
      String enderecoServidor = "localhost"; // Endereço do servidor
-     int porta = 1234; // Porta do servidor
+     int porta = 4213; // Porta do servidor
 
      try (
          Socket socket = new Socket(enderecoServidor, porta);
