@@ -1,15 +1,14 @@
 package banco;
 
-//ServidorContaBancaria.java
 
 import java.io.*;
 import java.net.*;
 
 public class ServidorContaBancaria {
- private static double saldo = 1000.00; // Saldo inicial da conta
+ private static double saldo = 1000.00; 
 
  public static void main(String[] args) {
-     int porta = 1234; // Porta para o servidor escutar
+     int porta = 4213; 
 
      try (ServerSocket servidorSocket = new ServerSocket(porta)) {
          System.out.println("Servidor de conta bancária iniciado na porta " + porta);
@@ -58,7 +57,7 @@ public class ServidorContaBancaria {
                          break;
                  }
 
-                 // Envia a resposta de volta ao cliente
+                
                  saida.println(resposta);
              } catch (IOException | NumberFormatException e) {
                  System.out.println("Erro ao processar a requisição: " + e.getMessage());
