@@ -276,8 +276,8 @@ public class InterfaceOperacao extends javax.swing.JFrame {
             oDao.inserir(o);
             limparFormulario();
             preencheTable();
-        } catch (NumberFormatException nfe){
-            JOptionPane.showMessageDialog(this, "Quantidade Invalida");
+        } catch (NumberFormatException e){
+            JOptionPane.showMessageDialog(this, e);
         }
 
         // Operacao o = new Operacao();
