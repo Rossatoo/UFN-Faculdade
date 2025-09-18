@@ -52,11 +52,14 @@ new OperacaoDao().inserir(o);
 ```java
 // Depois (Factory Method usando Builder por baixo)
 OperacaoFactory factory;
-String tipo = comboOperacao.getSelectedItem().toString(); // "Entrada" | "Saída" 
+
+String tipo = comboOperacao.getSelectedItem().toString(); // "Entrada" | "Saída"
+
 switch (tipo) {
     case "Entrada" -> factory = new EntradaFactory();
     case "Saída"   -> factory = new SaidaFactory();
 }
+
 Operacao o = factory.criar(p, u, comboMotivo.getSelectedItem().toString(),
                            Integer.parseInt(txtQuantidade.getText()), Jdate.getDate());
 new OperacaoDao().inserir(o);
@@ -67,38 +70,58 @@ new OperacaoDao().inserir(o);
 ```java
 // Trecho central do Builder (Beans/Operacao.java)
 public static class Builder {
-    private Produto produto; private Usuario usuario; private String tipo;
-    private String motivo; private Integer quantidade; private Date dataHora;
-    public Builder produto(Produto p){ this.produto=p; return this; }
-    public Builder usuario(Usuario u){ this.usuario=u; return this; }
-    public Builder tipo(String t){ this.tipo=t; return this; }
-    public Builder motivo(String m){ this.motivo=m; return this; }
-    public Builder quantidade(int q){ this.quantidade=q; return this; }
-    public Builder dataHora(Date d){ this.dataHora=d; return this; }
-    public Operacao build(){
-        Objects.requireNonNull(produto); Objects.requireNonNull(usuario);
-        Objects.requireNonNull(tipo); Objects.requireNonNull(quantidade);
-        Operacao op = new Operacao();
-        op.setId_produto(produto); op.setId_usuario(usuario);
-        op.setTipo_operacao(tipo); op.setMotivo(motivo);
-        op.setQuantidade(quantidade);
-        op.setData_hora(dataHora != null ? dataHora : new Date());
-        return op;
+        private Integer idOperacao;
+        private Produto produto;
+        private Usuario usuario;
+        private String tipo;
+        private String motivo;
+        private Integer quantidade;
+        private Date dataHora;
+
+        public Builder idOperacao(int id) { this.idOperacao = id; return this;}
+        public Builder produto(Produto p) { this.produto = p; return this;}
+        public Builder usuario(Usuario u) { this.usuario = u; return this;}
+        public Builder tipo(String tipo) { this.tipo = tipo; return this;}
+        public Builder motivo(String m) { this.motivo = m; return this;}
+        public Builder quantidade(int q) { this.quantidade = q; return this;}
+        public Builder dataHora(Date d) { this.dataHora = d; return this;}
+
+        public Operacao build(){
+            Objects.requireNonNull(produto);
+            Objects.requireNonNull(usuario);
+            Objects.requireNonNull(tipo);
+            Objects.requireNonNull(quantidade);
+            
+            Operacao op = new Operacao();
+            if(idOperacao != null) op.setId_operacao(idOperacao);
+            op.setId_produto(produto);
+            op.setId_usuario(usuario);
+            op.setTipo_operacao(tipo);
+            op.setMotivo(motivo);
+            op.setQuantidade(quantidade);
+            op.setData_hora(dataHora != null ? dataHora : new Date());
+            return op;
+        }
     }
-}
+
 
 ```
 ```java
 // Trecho central do Factory (factory/OperacaoFactory.java)
 public abstract class OperacaoFactory {
-    public abstract Operacao criar(Produto p, Usuario u, String motivo, int qtd, Date quando);
-    protected Operacao base(Produto p, Usuario u, String tipo, String motivo, int qtd, Date quando){
+    public abstract Operacao criar (Produto produto, Usuario usuario, String motivo, int quantidade, Date data);
+
+    protected Operacao base (Produto p, Usuario u, String tipo, String motivo, int qtd, Date data) {
         return new Operacao.Builder()
-            .produto(p).usuario(u).tipo(tipo).motivo(motivo)
-            .quantidade(qtd).dataHora(quando != null ? quando : new Date())
-            .build();
+        .produto(p)
+        .usuario(u)
+        .tipo(tipo)
+        .motivo(motivo)
+        .quantidade(qtd)
+        .dataHora(data != null ? data : new Date())
+        .build();
     }
-}
+} 
 
 ```
 
