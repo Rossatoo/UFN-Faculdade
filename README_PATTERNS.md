@@ -52,11 +52,10 @@ new OperacaoDao().inserir(o);
 ```java
 // Depois (Factory Method usando Builder por baixo)
 OperacaoFactory factory;
-String tipo = comboOperacao.getSelectedItem().toString(); // "Entrada" | "Saída" | "Ajuste"
+String tipo = comboOperacao.getSelectedItem().toString(); // "Entrada" | "Saída" 
 switch (tipo) {
     case "Entrada" -> factory = new EntradaFactory();
     case "Saída"   -> factory = new SaidaFactory();
-    default        -> factory = new AjusteFactory();
 }
 Operacao o = factory.criar(p, u, comboMotivo.getSelectedItem().toString(),
                            Integer.parseInt(txtQuantidade.getText()), Jdate.getDate());
