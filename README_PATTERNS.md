@@ -130,12 +130,9 @@ public abstract class OperacaoFactory {
 Raciocínio de projeto:
 1) A tela precisava criar Operacao com variações por tipo. Em vez de if-else na UI, movemos essa
    decisão para fábricas concretas (Factory Method). Assim, regras por tipo ficam centralizadas.
-2) Para garantir que toda Operacao criada esteja consistente (sem campos faltantes), a fábrica
+2) Para garantir que toda Operacao criada esteja consistente, a fábrica
    usa o Builder, que valida e aplica defaults. A UI fica limpa e a montagem padronizada.
 3) Evolução: novos tipos (ex.: Transferência) entram criando nova fábrica concreta, sem tocar na UI.
 
 
-**Conclusão.** 
-Resultado: criação coesa e extensível, menos duplicação e menos risco de inconsistência.
-Os dois padrões cumprem os requisitos da atividade (dois criacionais) e melhoram a manutenção.
 
